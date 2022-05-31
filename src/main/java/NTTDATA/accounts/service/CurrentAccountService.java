@@ -6,8 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public class CurrentAccountService {
+public interface CurrentAccountService {
 
+    //Guardar una cuenta
+    Mono<CurrentAccount> saveCurrentAccount(CurrentAccount currentAccount);
+
+    //Encontrar cuenta por id
+    Mono<CurrentAccount> findById(int id);
+
+    //Obtener todas la cuentas
+    Flux<CurrentAccount> findAll();
+
+    //Encontrar las cuentas por clientID
+    Flux<CurrentAccount> findByClientId(String clientId);
+
+    /*
     @Autowired
     CurrentAccountRepository currentAccountRepository;
 
@@ -18,5 +31,7 @@ public class CurrentAccountService {
     public Flux<CurrentAccount> getCurrentByClientId(int clintId){
         return currentAccountRepository.findByClientId(clintId);
     }
+    */
+
 
 }

@@ -3,10 +3,7 @@ package NTTDATA.accounts.controller;
 import NTTDATA.accounts.entity.CurrentAccount;
 import NTTDATA.accounts.service.CurrentAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -19,14 +16,24 @@ public class CurrentAccountController {
 
     //Encontrar Todos
     @GetMapping()
-    public Flux<CurrentAccount> getAccountCurrents (){
+    public Flux<CurrentAccount> getCurrentAccounts (){
         return currentAccountService.findAll();
+    }
+
+    @PostMapping()
+    public Mono<CurrentAccount> saveCurrentAccount(CurrentAccount currentAccount){
+        return currentAccountService.saveCurrentAccount(currentAccount);
+    }
+
+    @GetMapping("/{id}")
+    public Mono<CurrentAccount> findById(int id){
+        return currentAccountService.findById(id);
     }
 
     //Encontrar por Id
     @GetMapping("/byclient/{clientId}")
-    public Flux<CurrentAccount> getAccountCurrentsById(@PathVariable("clientId") int clientId){
-        return currentAccountService.getCurrentByClientId(clientId);
+    public Flux<CurrentAccount> getAccountCurrentsById(@PathVariable("clientId") String clientId){
+        return currentAccountService.findByClientId(clientId);
     }
 
 }
