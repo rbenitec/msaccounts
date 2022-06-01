@@ -15,10 +15,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class CurrentAccount {
 
     @Id
-    private int id;
+    private String id;
     private String nroAccount;
     private double availableBalance;
     private int commission;            // Sin limites de movimientos
-    private int clientId;
+    private String clientId;
 
 }

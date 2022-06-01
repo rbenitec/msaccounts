@@ -21,12 +21,12 @@ public class CurrentAccountController {
     }
 
     @PostMapping()
-    public Mono<CurrentAccount> saveCurrentAccount(CurrentAccount currentAccount){
+    public Mono<CurrentAccount> saveCurrentAccount(@RequestBody CurrentAccount currentAccount){
         return currentAccountService.saveCurrentAccount(currentAccount);
     }
 
     @GetMapping("/{id}")
-    public Mono<CurrentAccount> findById(int id){
+    public Mono<CurrentAccount> findById(String id){
         return currentAccountService.findById(id);
     }
 

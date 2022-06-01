@@ -12,7 +12,7 @@ public interface CurrentAccountService {
     Mono<CurrentAccount> saveCurrentAccount(CurrentAccount currentAccount);
 
     //Encontrar cuenta por id
-    Mono<CurrentAccount> findById(int id);
+    Mono<CurrentAccount> findById(String id);
 
     //Obtener todas la cuentas
     Flux<CurrentAccount> findAll();
