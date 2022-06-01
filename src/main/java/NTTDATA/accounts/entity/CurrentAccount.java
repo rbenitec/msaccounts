@@ -7,9 +7,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +15,6 @@ import javax.persistence.GenerationType;
 public class CurrentAccount {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nroAccount;
     private double availableBalance;
