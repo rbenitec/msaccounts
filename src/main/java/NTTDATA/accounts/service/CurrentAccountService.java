@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 public interface CurrentAccountService {
 
     //Guardar una cuenta
-    Mono<CurrentAccount> saveCurrentAccount(CurrentAccount currentAccount);
+    Mono<CurrentAccount> save(CurrentAccount currentAccount);
 
     //Encontrar cuenta por id
     Mono<CurrentAccount> findById(String id);

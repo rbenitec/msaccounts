@@ -22,11 +22,11 @@ public class CurrentAccountController {
 
     @PostMapping()
     public Mono<CurrentAccount> saveCurrentAccount(@RequestBody CurrentAccount currentAccount){
-        return currentAccountService.saveCurrentAccount(currentAccount);
+        return currentAccountService.save(currentAccount);
     }
 
     @GetMapping("/{id}")
-    public Mono<CurrentAccount> findById(String id){
+    public Mono<CurrentAccount> findById(@PathVariable("id") String id){
         return currentAccountService.findById(id);
     }
 
@@ -34,6 +34,7 @@ public class CurrentAccountController {
     @GetMapping("/byclient/{clientId}")
     public Flux<CurrentAccount> getAccountCurrentsById(@PathVariable("clientId") String clientId){
         return currentAccountService.findByClientId(clientId);
+
     }
 
 }

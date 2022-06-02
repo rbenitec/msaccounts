@@ -15,7 +15,7 @@ public class CurrentAccountServiceImpl implements CurrentAccountService {
     private CurrentAccountRepository currentAccountRepository;
 
     @Override
-    public Mono<CurrentAccount> saveCurrentAccount(CurrentAccount currentAccount) {
+    public Mono<CurrentAccount> save(CurrentAccount currentAccount) {
         return currentAccountRepository.save(currentAccount);
     }
 
