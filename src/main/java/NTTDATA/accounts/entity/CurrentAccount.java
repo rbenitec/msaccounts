@@ -16,8 +16,9 @@ public class CurrentAccount {
 
     @Id
     private String id;
-    private String nroAccount;
-    private double availableBalance;
+    private String numAccount;
+    private double balance;
+    private String type;
     private int commission;            // Sin limites de movimientos
     private String clientId;
 

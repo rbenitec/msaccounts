@@ -34,7 +34,6 @@ public class CurrentAccountController {
     @GetMapping("/byclient/{clientId}")
     public Flux<CurrentAccount> getAccountCurrentsById(@PathVariable("clientId") String clientId){
         return currentAccountService.findByClientId(clientId);
-
     }
 
 }
